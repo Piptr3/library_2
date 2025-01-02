@@ -13,6 +13,16 @@ const book1 = new Book('first_book', 'first_author');
 const book2 = new Book('second_book', 'second_author');
 const book3 = new Book('third_book', 'third_author');
 
-function displayBook(){
-
+function displayBooks(book){
+    const output = document.querySelector('output');
+    output.innerHTML = "";
+    myLibrary.forEach(book =>  {
+        output.innerHTML += `<div> ${book.name} by ${book.author} </div>`
+    });
 }
+
+addBookToLibrary(book1);
+addBookToLibrary(book2);
+addBookToLibrary(book3);
+
+displayBooks(Book);
