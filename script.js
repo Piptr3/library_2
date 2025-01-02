@@ -28,9 +28,29 @@ addBookToLibrary(book3);
 displayBooks(Book);
 
 const addBookButton = document.getElementById("showDialog");
-const confirmButton = document.getElementById("confirmBtn");
 const dialog = document.getElementById("dialog");
+const newBookForm = document.getElementById("newBookForm");
 
 addBookButton.addEventListener("click", () => {
     dialog.showModal();
+});
+
+newBookForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const formData = new FormData(newBookForm);
+    const name = formData.get("name");
+    const author = formData.get("author");    
+
+    const newBook = new Book(name, author);
+    addBookToLibrary(newBook);
+    displayBooks(newBook);
+
+    dialog.close();
+    newBookForm.reset();
 })
+
+const cancelButton = document.getElementById("cancelBtn");
+
+cancelButton.addEventListener("click", () => {
+    dialog.close();
+});
