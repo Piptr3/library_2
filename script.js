@@ -16,9 +16,22 @@ const book3 = new Book('third_book', 'third_author');
 function displayBooks(book){
     const output = document.querySelector('output');
     output.innerHTML = "";
-    myLibrary.forEach(book =>  {
-        output.innerHTML += `<div> ${book.name} by ${book.author} </div>`
+    myLibrary.forEach((book, index) =>  {
+        output.innerHTML += `
+        <div> 
+            ${book.name} by ${book.author} 
+            <button data-index="${index}" class="removeBookBtn">Remove</button>
+        </div>`
     });
+
+    document.querySelectorAll(".removeBookBtn").forEach(button => {
+        button.addEventListener("click", () => {
+            const bookIndex = button.getAttribute("data-index");
+            myLibrary.splice(bookIndex, 1);
+            displayBooks();
+        });
+    });
+
 }
 
 addBookToLibrary(book1);
