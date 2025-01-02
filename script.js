@@ -26,3 +26,11 @@ addBookToLibrary(book2);
 addBookToLibrary(book3);
 
 displayBooks(Book);
+
+const addBookButton = document.getElementById("showDialog");
+const confirmButton = document.getElementById("confirmBtn");
+const dialog = document.getElementById("dialog");
+
+addBookButton.addEventListener("click", () => {
+    dialog.showModal();
+})

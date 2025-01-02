@@ -8,6 +8,24 @@
     <script src="script.js" defer></script>
 </head>
 <body>
+    <dialog id="dialog">
+        <form>
+            <p>
+                <label for="book_name">Name: </label>
+                <input type="text" id="book_name" name="name">
+
+                <label for="author_name">Name: </label>
+                <input type="text" id="author_name" name="author">
+            </p>
+            <div>
+                <button value="cancel" formethod="dialog">Cancel</button>
+                <button id="confirmBtn" value="default">Confirm</button>
+            </div>
+        </form>
+    </dialog>
+    <p>
+        <button id="showDialog">Add Book</button>
+    </p>
     <output></output>
 </body>
 </html>
